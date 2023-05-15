@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block title %}Online Testing System Resgistration Form {% endblock %}
+
+{% block top%}
+
+<a href="{% url 'Online_Testing_System:login' %}">Login</a>
+{% endblock %}
+
+{% block content %}
+<div class="all-forms">
+    <form action="{% url 'Online_Testing_System:storeCandidate' %}" method="POST">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" ,name="username"><br>
+        <label for="password">Password</label>
+        <input type="password",name="password"><br>
+        <label for="name">Name</label>
+        <input type="text",name="name"><br>
+
+        <input type="submit", value="submit">
+        <input type="reset", value="Clear">
+    </form>
+    Already have an account, <a href="{% url 'Online_Testing_System:login' %}">Click here</a>
+</div>
+{% endblock %}
